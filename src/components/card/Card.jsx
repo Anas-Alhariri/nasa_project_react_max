@@ -10,13 +10,13 @@ const Card = ({ hdurl, url, copyright, date, explanation, title }) => {
             <img
               className={style.image}
               src={
-                url
-                  ? url
+                hdurl
+                  ? hdurl
                   : "https://apod.nasa.gov/apod/image/0003/eros0306_near.jpg"
               }
               alt={
-                url
-                  ? url
+                hdurl
+                  ? hdurl
                   : "https://apod.nasa.gov/apod/image/0003/eros0306_near.jpg"
               }
             />
@@ -27,8 +27,8 @@ const Card = ({ hdurl, url, copyright, date, explanation, title }) => {
             </h3>
             <a
               href={
-                url
-                  ? url
+                hdurl
+                  ? hdurl
                   : "https://apod.nasa.gov/apod/image/0003/eros0306_near.jpg"
               }
               className={style.link}
