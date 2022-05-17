@@ -9,11 +9,10 @@
 }
 
 .image {
-    width        : 100%;
-    /* max-height: 572px; */
-    height       : auto;
-    -o-object-fit: cover;
-    object-fit   : cover;
+    width     : 100%;
+    height    : auto;
+    max-height: 372px;
+    object-fit: cover;
 }
 
 .cardBody {
@@ -39,11 +38,9 @@
 }
 
 .text {
-    -webkit-hyphens: auto;
-    -ms-hyphens    : auto;
-    hyphens        : auto;
-    text-align     : justify;
-    margin-bottom  : 1rem;
+    hyphens      : auto;
+    text-align   : justify;
+    margin-bottom: 1rem;
 }
 
 .dateAndCopyright {
