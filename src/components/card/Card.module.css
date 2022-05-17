@@ -12,12 +12,14 @@
     width        : 100%;
     /* max-height: 572px; */
     height       : auto;
+    -o-object-fit: cover;
     object-fit   : cover;
 }
 
 .cardBody {
-    padding        : 1.6rem 1.25rem .5rem;
-    text-align-last: left;
+    padding             : 1.6rem 1.25rem .5rem;
+    -moz-text-align-last: left;
+    text-align-last     : left;
 }
 
 .title {
@@ -38,9 +40,11 @@
 }
 
 .text {
-    hyphens      : auto;
-    text-align   : justify;
-    margin-bottom: 1rem;
+    -webkit-hyphens: auto;
+    -ms-hyphens    : auto;
+    hyphens        : auto;
+    text-align     : justify;
+    margin-bottom  : 1rem;
 }
 
 .dateAndCopyright {

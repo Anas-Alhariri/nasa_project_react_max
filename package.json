@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "vite build & surge.cmd ./dist/ https://nasa-gallery.surge.sh/",
+    "preview": "vite preview",
+    "sendToRepo": "git add . & git commit -m \"Auto Sent to repo\" & git push"
   },
   "dependencies": {
     "react": "^18.0.0",
