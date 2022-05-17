@@ -94,3 +94,7 @@ span {
     background-image: url(../../icons/person-icon.png);
 
 }
+
+.favored {
+    color: red;
+}
