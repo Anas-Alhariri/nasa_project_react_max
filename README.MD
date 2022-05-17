@@ -14,4 +14,4 @@
 
 ### Live Demo
 
-(Live here...)['https://nasa-gallery.surge.sh/]
+<https://nasa-gallery.surge.sh/>
