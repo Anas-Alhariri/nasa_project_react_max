@@ -69,11 +69,7 @@ const Card = ({ hdurl, url, copyright, date, explanation, title }) => {
       );
     }
 
-    return (
-      <div class={appStyle.loader}>
-        <img src={loadingImage} alt="Rocket Loading Animation" />
-      </div>
-    );
+    return null;
   };
 
   return loadCards();

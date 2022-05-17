@@ -7,11 +7,13 @@
     "build": "vite build && surge ./dist/ https://nasa-gallery.surge.sh/",
     "preview": "vite preview",
     "sendToRepo": "git add . && git commit -m \"Auto Sent to repo\" && git push",
+    "sendWithMessage": "git add . && git commit -a && git push",
     "viewRepo": "gh repo view -w"
   },
   "dependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

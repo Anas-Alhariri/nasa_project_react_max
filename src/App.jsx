@@ -4,6 +4,8 @@ import styles from "./App.module.css";
 import CardsList from "./components/cardsList/CardsList";
 import Container from "./components/container/Container";
 import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/Home";
+import Router from "./AppsRouter";
 
 const count = 10;
 const apiKey = "eguDbnHKBHkJSIAKAbUwOYvP1hFz7bEsBliV3xSy";
@@ -34,7 +36,7 @@ function App() {
     <div className={styles.app}>
       <Navbar />
       <Container>
-        <CardsList cards={cards} />
+        <Router cards={cards} />
       </Container>
     </div>
   );

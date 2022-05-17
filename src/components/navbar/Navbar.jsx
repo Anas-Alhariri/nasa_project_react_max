@@ -1,17 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
     <div className={style.navbar}>
       <div id="menu" className={style.menu}>
-        <a href="#" className={style.link}>
+        <Link to={"/Favorites"} className={style.link}>
           Favorites
-        </a>
+        </Link>
         <span className={style.dot}> • </span>
-        <a href="#" className={style.link}>
+        <Link to={"/"} className={style.link}>
           Load More
-        </a>
+        </Link>
       </div>
     </div>
   );
