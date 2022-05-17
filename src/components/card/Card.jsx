@@ -51,14 +51,16 @@ const Card = ({ hdurl, url, copyright, date, explanation, title }) => {
             <div className={style.dateAndCopyright}>
               {copyright && (
                 <p className={style.copyright}>
-                  Copyright:
+                  <span className={style.copyrightIcon}>Copyright:</span>
                   <span className={style.copyrightText}>By {copyright}</span>
                 </p>
               )}
               <p className={style.date}>
-                Published:
-                <span className={style.dateText}>
-                  {date ? `${date}` : `${new Date().toDateString()}`}
+                <span className={style.dateIcon}>
+                  Published:
+                  <span className={style.dateText}>
+                    {date ? `${date}` : `${new Date().toDateString()}`}
+                  </span>
                 </span>
               </p>
             </div>

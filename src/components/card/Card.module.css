@@ -17,9 +17,8 @@
 }
 
 .cardBody {
-    padding             : 1.6rem 1.25rem .5rem;
-    -moz-text-align-last: left;
-    text-align-last     : left;
+    padding   : 1.6rem 1.25rem .5rem;
+    text-align: left;
 }
 
 .title {
@@ -49,6 +48,8 @@
 
 .dateAndCopyright {
     display           : flex;
+    flex-wrap         : wrap;
+    gap               : .4rem;
     width             : 100%;
     justify-content   : space-between;
     align-items       : center;
@@ -62,22 +63,22 @@ span {
     font-weight : normal;
 }
 
-.date,
-.copyright {
+.dateIcon,
+.copyrightIcon {
     font-weight        : bold;
     background-repeat  : no-repeat;
     background-size    : contain;
     background-position: left center;
-    padding-left       : 1.8rem;
+    padding-left       : 1.5rem;
 }
 
-.date {
+/* .date {
     background-image: url(../../icons/clock-icon.png);
 }
 
 .copyright {
     background-image: url(../../icons/person-icon.png);
-}
+} */
 
 .dateText {
     color: black;
@@ -86,4 +87,13 @@ span {
 
 .copyrightText {
     color: black;
+}
+
+.dateIcon {
+    background-image: url(../../icons/clock-icon.png);
+}
+
+.copyrightIcon {
+    background-image: url(../../icons/person-icon.png);
+
 }
