@@ -12,6 +12,13 @@ const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${co
 function App() {
   const [cards, setCards] = useState([]);
 
+  // TODO: Create a full-screen image viewer component.
+  // TODO: Make the fetchData function rerun when "Load more" link is clicked.
+  // TODO: Create the functionality of the "Add to Favorites" link using the localStorage.
+  // TODO: Create a page for favorites.
+  // TODO: Create Favorites component.
+  // TODO: Create favoritesList component.
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await fetch(apiUrl);
