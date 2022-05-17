@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build & surge ./dist/ https://nasa-gallery.surge.sh/",
     "preview": "vite preview",
-    "sendToRepo": "git add . & git commit -m \"Auto Sent to repo\" & git push",
+    "sendToRepo": "git add . && git commit -a && git push",
     "viewRepo": "gh repo view -w"
   },
   "dependencies": {
