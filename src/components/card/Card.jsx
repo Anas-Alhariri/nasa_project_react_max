@@ -1,4 +1,9 @@
 import { useEffect, useState } from "react";
+import {
+  addCardToLocalStorage,
+  checkIfItemInLocalStorage,
+  removeCardFromLocalStorage,
+} from "../localstorage/LocalStorageManager";
 import style from "./Card.module.css";
 
 const Card = (props) => {
@@ -40,26 +45,34 @@ const Card = (props) => {
               }
             />
           </a>
+
           <div className={style.cardBody}>
             <h3 className={style.title}>
               {card.title ? card.title : `Nearer To Asteroid Eros`}
             </h3>
+
             <a
               onClick={(e) => {
                 // TODO: SET ELEMENTs or Add element to the localStorage
                 e.preventDefault();
-                setIsFavored(!isFavored);
-                setCard((pre) => ({ ...pre, isFavorite: !isFavored }));
-                if (!localStorage.getItem("cards")) {
-                  localStorage.setItem("cards:", JSON.stringify({ card }));
+                if (!checkIfItemInLocalStorage(card)) {
+                  addCardToLocalStorage(card);
+                  setIsFavored(true);
+                  setCard((pre) => ({ ...pre, isFavorite: true }));
+                } else {
+                  removeCardFromLocalStorage(card);
+                  setIsFavored(false);
+                  setCard((pre) => ({ ...pre, isFavorite: false }));
                 }
+
                 console.log(localStorage.getItem("card"));
                 console.log(card);
               }}
               className={`${style.link} + ${isFavored && style.favored}`}
             >
-              Add to Favorites
+              {isFavored ? "Remove from Favorites" : "Add to Favorites"}
             </a>
+
             <p className={style.text}>
               {card.explanation
                 ? card.explanation
@@ -74,6 +87,7 @@ const Card = (props) => {
             However, you would feel gravity only 1/1000 that on Earth, so that you
             could easily jump over even this large 5 kilometer wide crater.`}
             </p>
+
             <div className={style.dateAndCopyright}>
               {card.copyright && (
                 <p className={style.copyright}>

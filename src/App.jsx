@@ -6,6 +6,7 @@ import Container from "./components/container/Container";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
 import Router from "./AppsRouter";
+import LocalStorageManager from "./components/localstorage/LocalStorageManager";
 
 const count = 10;
 const apiKey = "eguDbnHKBHkJSIAKAbUwOYvP1hFz7bEsBliV3xSy";
@@ -36,6 +37,7 @@ function App() {
     <div className={styles.app}>
       <Navbar />
       <Container>
+        <LocalStorageManager />
         <Router cards={cards} />
       </Container>
     </div>

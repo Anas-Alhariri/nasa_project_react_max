@@ -37,6 +37,10 @@
     color: rgb(9, 99, 190);
 }
 
+.link.favored:hover {
+    color: darkred;
+}
+
 .text {
     hyphens      : auto;
     text-align   : justify;
