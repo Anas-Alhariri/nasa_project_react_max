@@ -36,6 +36,7 @@ const Card = (props) => {
           <a href={card.hdurl}>
             <img
               className={style.image}
+              loading="lazy"
               src={
                 card.hdurl
                   ? card.hdurl
