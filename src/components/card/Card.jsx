@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   addCardToLocalStorage,
   checkIfItemInLocalStorage,
+  getFavItemsFromLocalStorage,
   removeCardFromLocalStorage,
 } from "../localstorage/LocalStorageManager";
 import style from "./Card.module.css";
@@ -13,18 +14,20 @@ const Card = (props) => {
   const [isFavored, setIsFavored] = useState(false);
 
   useEffect(() => {
-    if (card) {
-      // setCard(props.card);
-      setCard({ ...props.card, isFavorite: props.card?.isFavorite || false });
-      // setCard((pre) => ({ ...pre, isFavored: false }));
-    }
-  }, [props.card]);
+    setIsFavored(checkIfItemInLocalStorage(props.card)?.isFavored || false);
+
+    console.log(
+      "checkIfItemInLocalStorage(props.card).isFavored :",
+      checkIfItemInLocalStorage(props.card)?.isFavored
+    );
+  }, [card]);
 
   useEffect(() => {
-    if (card) {
-      setIsFavored(card.isFavorite);
-    }
-  }, [card]);
+    setCard({
+      ...props.card,
+      isFavored,
+    });
+  }, [isFavored]);
 
   const loadCards = () => {
     if (card) {
@@ -56,13 +59,11 @@ const Card = (props) => {
                 // TODO: SET ELEMENTs or Add element to the localStorage
                 e.preventDefault();
                 if (!checkIfItemInLocalStorage(card)) {
-                  addCardToLocalStorage(card);
                   setIsFavored(true);
-                  setCard((pre) => ({ ...pre, isFavorite: true }));
+                  addCardToLocalStorage({ ...card, isFavored: true });
                 } else {
                   removeCardFromLocalStorage(card);
                   setIsFavored(false);
-                  setCard((pre) => ({ ...pre, isFavorite: false }));
                 }
 
                 console.log(localStorage.getItem("card"));
