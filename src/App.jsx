@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 
 import styles from "./App.module.css";
-import CardsList from "./components/cardsList/CardsList";
-import Container from "./components/container/Container";
-import Navbar from "./components/navbar/Navbar";
-import Home from "./pages/Home";
 import Router from "./AppsRouter";
+import Confirmation from "./components/confirmation/Confirmation";
+import Container from "./components/container/Container";
 import LocalStorageManager from "./components/localstorage/LocalStorageManager";
+import Navbar from "./components/navbar/Navbar";
 
 const count = 10;
 const apiKey = "eguDbnHKBHkJSIAKAbUwOYvP1hFz7bEsBliV3xSy";
@@ -40,6 +39,7 @@ function App() {
         <LocalStorageManager />
         <Router cards={cards} />
       </Container>
+      {/* <Confirmation message={`Welcome to Nasa's Gallery`} /> */}
     </div>
   );
 }

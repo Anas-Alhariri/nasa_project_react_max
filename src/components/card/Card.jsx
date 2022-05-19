@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Confirmation from "../confirmation/Confirmation";
 import {
   addCardToLocalStorage,
   checkIfItemInLocalStorage,
@@ -12,6 +13,7 @@ const Card = (props) => {
   // props.card;
   const [card, setCard] = useState({});
   const [isFavored, setIsFavored] = useState(false);
+  const [message, setMessage] = useState(null);
 
   useEffect(() => {
     setIsFavored(checkIfItemInLocalStorage(props.card)?.isFavored || false);
@@ -62,9 +64,11 @@ const Card = (props) => {
                 if (!checkIfItemInLocalStorage(card)) {
                   setIsFavored(true);
                   addCardToLocalStorage({ ...card, isFavored: true });
+                  setMessage("Added to Favorites");
                 } else {
                   removeCardFromLocalStorage(card);
                   setIsFavored(false);
+                  setMessage("Removed from Favorites");
                 }
 
                 console.log(localStorage.getItem("card"));
@@ -111,6 +115,7 @@ const Card = (props) => {
               </p>
             </div>
           </div>
+          <Confirmation message={message} />
         </div>
       );
     }

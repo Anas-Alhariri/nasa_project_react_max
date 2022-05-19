@@ -1,0 +1,10 @@
+.confirmation {
+    position        : fixed;
+    bottom          : 20px;
+    right           : 20px;
+    z-index         : 1000;
+    background-color: rgb(240, 240, 240);
+    padding         : 2% 2rem;
+    border          : 1px solid #ccc;
+    border-radius   : 150px;
+}
