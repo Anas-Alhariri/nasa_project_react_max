@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
+import AppContext from "../../AppContext";
 import Confirmation from "../confirmation/Confirmation";
 import {
   addCardToLocalStorage,
@@ -9,27 +11,20 @@ import {
 import style from "./Card.module.css";
 
 const Card = (props) => {
-  // const { hdurl, url, copyright, date, explanation, title, isFavored } =
-  // props.card;
+  const { cards, setCards, favorites, setFavorites } = useContext(AppContext);
+
   const [card, setCard] = useState({});
   const [isFavored, setIsFavored] = useState(false);
   const [message, setMessage] = useState(null);
 
   useEffect(() => {
-    setIsFavored(checkIfItemInLocalStorage(props.card)?.isFavored || false);
-
-    console.log(
-      "checkIfItemInLocalStorage(props.card).isFavored :",
-      checkIfItemInLocalStorage(props.card)?.isFavored
-    );
-  }, [card]);
-
-  useEffect(() => {
-    setCard({
-      ...props.card,
-      isFavored,
-    });
-  }, [isFavored]);
+    setCard(props.card);
+    if (favorites.find((item) => item.hdurl === card.hdurl)) {
+      setIsFavored(true);
+    } else {
+      setIsFavored(false);
+    }
+  }, [card, favorites]);
 
   const loadCards = () => {
     if (card) {
@@ -59,20 +54,19 @@ const Card = (props) => {
 
             <a
               onClick={(e) => {
-                // TODO: SET ELEMENTs or Add element to the localStorage
                 e.preventDefault();
-                if (!checkIfItemInLocalStorage(card)) {
-                  setIsFavored(true);
-                  addCardToLocalStorage({ ...card, isFavored: true });
-                  setMessage("Added to Favorites");
-                } else {
-                  removeCardFromLocalStorage(card);
+
+                if (favorites.find((item) => item.hdurl === card.hdurl)) {
+                  setFavorites((pre) =>
+                    pre.filter((item) => item.hdurl !== card.hdurl)
+                  );
                   setIsFavored(false);
                   setMessage("Removed from Favorites");
+                } else {
+                  setFavorites((pre) => [...pre, card]);
+                  setIsFavored(true);
+                  setMessage("Added to Favorites");
                 }
-
-                console.log(localStorage.getItem("card"));
-                console.log(card);
               }}
               className={`${style.link} + ${isFavored && style.favored}`}
             >

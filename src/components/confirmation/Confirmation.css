@@ -4,7 +4,7 @@
     right           : 20px;
     z-index         : 1000;
     background-color: rgb(240, 240, 240);
-    padding         : 2% 2rem;
+    padding         : 0.5rem 2rem;
     border          : 1px solid dodgerblue;
     border-radius   : 150px;
 }

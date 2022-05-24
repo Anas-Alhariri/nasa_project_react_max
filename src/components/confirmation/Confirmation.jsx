@@ -7,7 +7,8 @@ const Confirmation = ({ message }) => {
   useEffect(() => {
     setShow(true);
     let id = null;
-    console.log(message);
+    // console.log(message);
+
     id = setTimeout(() => {
       setShow(false);
     }, 3000);

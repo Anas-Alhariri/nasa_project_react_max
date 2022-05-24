@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 
 import styles from "./App.module.css";
+import AppContext from "./AppContext";
 import Router from "./AppsRouter";
 import Confirmation from "./components/confirmation/Confirmation";
 import Container from "./components/container/Container";
@@ -13,6 +15,8 @@ const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${co
 
 function App() {
   const [cards, setCards] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const appContext = useContext(AppContext);
 
   // TODO: Create a full-screen image viewer component.
   // TODO: Make the fetchData function rerun when "Load more" link is clicked.
@@ -36,8 +40,12 @@ function App() {
     <div className={styles.app}>
       <Navbar />
       <Container>
-        <LocalStorageManager />
-        <Router cards={cards} />
+        <AppContext.Provider
+          value={{ cards, setCards, favorites, setFavorites }}
+        >
+          <LocalStorageManager />
+          <Router />
+        </AppContext.Provider>
       </Container>
       {/* <Confirmation message={`Welcome to Nasa's Gallery`} /> */}
     </div>
